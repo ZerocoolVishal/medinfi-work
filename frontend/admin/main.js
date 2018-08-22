@@ -81,7 +81,7 @@ function getFilterData() {
 function getProjectAndDashboard() {
     campaignProgressBar(10)
     setTargets(10, 10)
-    setProjectList()
+    setProjectList(['Project 1', ['project 2'], ['Project 3']])
 }
 
 function campaignProgressBar(campaignProgress) {
@@ -94,6 +94,9 @@ function setTargets(achieved, target) {
     $("#target").html(target)
 }
 
-function setProjectList() {
-    
+function setProjectList(projectList) {
+    projectList.forEach(project => {
+        $("#project_list").append(`<a href="#" class="list-group-item list-group-item-action">${project}</a>`)
+    })
 }
+

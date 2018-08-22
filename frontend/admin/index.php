@@ -12,35 +12,7 @@
 </head>
 
 <body style="margin:0px;">
-    <nav class="navbar navbar-light navbar-expand-md navigation-clean-search">
-        <div class="container">
-            <a class="navbar-brand" href="#">Medinfi Analytics 2.0</a>
-            <button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navcol-1">
-                <ul class="nav navbar-nav">
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link" href="#">Dashboard</a>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link" href="#">Settings</a>
-                    </li>
-                </ul>
-                <form class="form-inline mr-auto" target="_self">
-                    <div class="form-group">
-                        <label for="search-field">
-                            <i class="fa fa-search"></i>
-                        </label>
-                        <input class="form-control search-field" type="search" name="search" id="search-field">
-                    </div>
-                </form>
-                <a class="btn btn-light action-button" role="button" href="#">Logout</a>
-            </div>
-        </div>
-    </nav>
-    
+
     <div class="container" style="margin:20px;">
 
         <!--Project Filters-->
@@ -81,7 +53,7 @@
             <div class="col">
                 <div class="card border-dark">
                     <div class="card-body">
-                        <h4 class="card-title" id="target_achieved">6000</h4>
+                        <h4 class="card-title" id="target_achieved">0</h4>
                         <h6 class="text-muted card-subtitle mb-2">Target Achieved</h6>
                     </div>
                 </div>
@@ -89,9 +61,7 @@
             <div class="col">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title" id="target">15000
-                            <br>
-                        </h4>
+                        <h4 class="card-title" id="target">0</h4>
                         <h6 class="text-muted card-subtitle mb-2">Target</h6>
                     </div>
                 </div>
@@ -105,18 +75,18 @@
                 <!--Project List-->
                 <div class="row">
                     <div class="col-3">
-                        <div class="list-group">
-                            <a href="#" class="list-group-item list-group-item-action active">Project 1</a>
-                            <a href="#" class="list-group-item list-group-item-action">Project 2</a>
-                            <a href="#" class="list-group-item list-group-item-action">Project 3</a>
-                            <a href="#" class="list-group-item list-group-item-action">Project 4</a>
+                        <div class="list-group" id="project_list">
+                            <a href="#" class="list-group-item list-group-item-action">Project 1</a>
                           </div>
                     </div>
-
-
+                    <div class="col-9">
+                        <?php include "display_project.html" ?>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <!--Export Button-->
         <div class="row">
             <div class="col">
                 <button class="btn btn-primary" type="button">Export</button>
