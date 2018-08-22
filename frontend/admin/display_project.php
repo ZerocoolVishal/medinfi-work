@@ -4,7 +4,6 @@
         <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
 
             <div>
-
                 <ul class="nav nav-tabs d-flex">
                     <li class="nav-item">
                         <a class="nav-link active" role="tab" data-toggle="tab" href="#tab-1">Medinfi Blog</a>
@@ -28,7 +27,7 @@
                             <div class="col">
                                 <label class="col-form-label">Medinfi Blog Progress</label>
                                 <div class="progress">
-                                    <div class="progress-bar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">100%</div>
+                                    <div class="progress-bar" id="medinfi_blog_progress_bar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">0%</div>
                                 </div>
                             </div>
                         </div>
@@ -38,7 +37,7 @@
                             <div class="col">
                                 <div class="card border-primary">
                                     <div class="card-body">
-                                        <h4 class="card-title">500</h4>
+                                        <h4 class="card-title" id="medinfi_total">0</h4>
                                         <h6 class="text-muted card-subtitle mb-2">Total Page View</h6>
                                     </div>
                                 </div>
@@ -46,9 +45,7 @@
                             <div class="col">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4 class="card-title">5000
-                                            <br />
-                                        </h4>
+                                        <h4 class="card-title" id="medinfi_target">0</h4>
                                         <h6 class="text-muted card-subtitle mb-2">Page View Target</h6>
                                     </div>
                                 </div>
@@ -68,36 +65,42 @@
                         </div>
 
                         <!--Preoject Data-->
-                        <div class="row" style="margin-top:20px;">
+                        <div class="row">
                             <div class="col">
 
                                 <div class="row">
                                     <div class="col-3">
                                         <div class="nav flex-column nav-pills" id="v-pills-tab">
-                                            <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home">Page Views</a>
-                                            <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile">Banner Clicks</a>
-                                            <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages">Online Sale</a>
+                                            <a class="nav-link active" id="mb-page-views-tab" data-toggle="pill" href="#mb-page-views">Page Views</a>
+                                            <a class="nav-link" id="mb-banner-clicks-tab" data-toggle="pill" href="#mb-banner-clicks">Banner Clicks</a>
+                                            <a class="nav-link" id="mb-online-sales-tab" data-toggle="pill" href="#mb-online-sales">Online Sales</a>
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="tab-content" id="v-pills-tabContent">
-                                            <div class="tab-pane fade show active" id="v-pills-home">
+                                            <div class="tab-pane fade show active" id="mb-page-views">
 
                                                 <!--TODO: Table data goes here-->
+                                                Page Views
+                                                <?php include "table.html" ?>
 
                                             </div>
-                                            <div class="tab-pane fade" id="v-pills-profile">
+                                            <div class="tab-pane fade" id="mb-banner-clicks">
                                                 <div class="table-responsive">
 
                                                     <!--TODO: Table data goes here-->
+                                                    Banner Clicks
+                                                    <?php include "table.html" ?>
 
                                                 </div>
                                             </div>
 
-                                            <div class="tab-pane fade" id="v-pills-messages">
+                                            <div class="tab-pane fade" id="mb-online-sales">
                                                 <div class="table-responsive">
 
                                                     <!--TODO: Table data goes here-->
+                                                    Online Sale
+                                                    <?php include "table.html" ?>
 
                                                 </div>
                                             </div>
@@ -115,7 +118,7 @@
                             <div class="col">
                                 <label class="col-form-label">Facebook Progress</label>
                                 <div class="progress">
-                                    <div class="progress-bar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 30%;">30%</div>
+                                    <div class="progress-bar" id="fb_progress_bar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">0%</div>
                                 </div>
                             </div>
                         </div>
@@ -123,19 +126,15 @@
                             <div class="col">
                                 <div class="card border-primary">
                                     <div class="card-body">
-                                        <h4 class="card-title">500</h4>
-                                        <h6 class="text-muted card-subtitle mb-2">Facebook Target Achieved
-                                            <br />
-                                        </h6>
+                                        <h4 class="card-title" id="fb_achieved">0</h4>
+                                        <h6 class="text-muted card-subtitle mb-2">Facebook Target Achieved</h6>
                                     </div>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4 class="card-title">5000
-                                            <br />
-                                        </h4>
+                                        <h4 class="card-title" id="fb_target">0</h4>
                                         <h6 class="text-muted card-subtitle mb-2">Target</h6>
                                     </div>
                                 </div>
@@ -167,12 +166,14 @@
 
                                         <!--TODO : Table goes here-->
                                         likes and share
+                                        <?php include "table.html" ?>
 
                                     </div>
                                     <div class="tab-pane fade" id="fb-click-to-site">
 
                                         <!--TODO : Table goes here-->
                                         click to site
+                                        <?php include "table.html" ?>
 
                                     </div>
 
@@ -180,6 +181,7 @@
 
                                         <!--TODO : Table goes here-->
                                         comments
+                                        <?php include "table.html" ?>
 
                                     </div>
                                 </div>
@@ -197,7 +199,7 @@
                             <div class="col">
                                 <label class="col-form-label">Twitter Progress</label>
                                 <div class="progress">
-                                    <div class="progress-bar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 30%;">30%</div>
+                                    <div class="progress-bar" id="tw_progress_bar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">0%</div>
                                 </div>
                             </div>
                         </div>
@@ -207,19 +209,15 @@
                             <div class="col">
                                 <div class="card border-primary">
                                     <div class="card-body">
-                                        <h4 class="card-title">500</h4>
-                                        <h6 class="text-muted card-subtitle mb-2">Twitter Target Achieved
-                                            <br />
-                                        </h6>
+                                        <h4 class="card-title" id="tw_achieved">0</h4>
+                                        <h6 class="text-muted card-subtitle mb-2">Twitter Target Achieved</h6>
                                     </div>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4 class="card-title">5000
-                                            <br />
-                                        </h4>
+                                        <h4 class="card-title" id="tw_target">0</h4>
                                         <h6 class="text-muted card-subtitle mb-2">Target</h6>
                                     </div>
                                 </div>
@@ -253,12 +251,14 @@
 
                                         <!--TODO : Table goes here-->
                                         Impression
+                                        <?php include "table.html" ?>
 
                                     </div>
                                     <div class="tab-pane fade" id="tw-retweets">
 
                                         <!--TODO : Table goes here-->
                                         Retweets
+                                        <?php include "table.html" ?>
 
                                     </div>
 
@@ -266,6 +266,7 @@
 
                                         <!--TODO : Table goes here-->
                                         Comments
+                                        <?php include "table.html" ?>
 
                                     </div>
                                 </div>

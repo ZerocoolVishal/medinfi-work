@@ -4,16 +4,15 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Analytics 2.0</title>
+    <title>Medinfi Analytics</title>
     <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="../assets/css/Navigation-with-Search.css">
     <link rel="stylesheet" href="../assets/css/styles.css">
 </head>
 
 <body style="margin:0px;">
 
-    <div class="container" style="margin:20px;">
+    <div class="container">
 
         <!--Project Filters-->
         <div class="row">
@@ -43,7 +42,7 @@
                 <label class="col-form-label">Campaign Progress</label>
                 <div class="progress align-items-center">
                     <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" id="campaign_progress_bar" aria-valuenow="40"
-                        aria-valuemin="0" aria-valuemax="100"></div>
+                        aria-valuemin="0" aria-valuemax="100" style="width: 0">0%</div>
                 </div>
             </div>
         </div>
@@ -76,11 +75,11 @@
                 <div class="row">
                     <div class="col-3">
                         <div class="list-group" id="project_list">
-                            <a href="#" class="list-group-item list-group-item-action">Project 1</a>
-                          </div>
+                            
+                        </div>
                     </div>
                     <div class="col-9">
-                        <?php include "display_project.html" ?>
+                        <?php include "display_project.php" ?>
                     </div>
                 </div>
             </div>

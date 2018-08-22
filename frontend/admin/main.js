@@ -8,7 +8,12 @@ $(document).ready(function () {
     setClients(filterData.client)
     setAcm(filterData.acm)
 
-    getProjectAndDashboard()
+    setProjectAndDashboard()
+
+    //Testing
+    setMedinfiBlogTargets(20, 100)
+    setFacebookTarget(30, 100)
+    setTwitterTarget(40, 100)
 })
 
 function setCompanies(company) {
@@ -78,20 +83,20 @@ function getFilterData() {
     return filterData
 }
 
-function getProjectAndDashboard() {
-    campaignProgressBar(10)
-    setTargets(10, 10)
+function setProjectAndDashboard() {
+    setProjectTargets(56, 100)
     setProjectList(['Project 1', ['project 2'], ['Project 3']])
+}
+
+function setProjectTargets(achieved, target) {
+    $("#target_achieved").html(achieved)
+    $("#target").html(target)
+    campaignProgressBar(Math.floor(achieved/target*100))
 }
 
 function campaignProgressBar(campaignProgress) {
     $("#campaign_progress_bar").css("width", campaignProgress + "%")
     $("#campaign_progress_bar").html(campaignProgress + "%")
-}
-
-function setTargets(achieved, target) {
-    $("#target_achieved").html(achieved)
-    $("#target").html(target)
 }
 
 function setProjectList(projectList) {
@@ -100,3 +105,26 @@ function setProjectList(projectList) {
     })
 }
 
+function setMedinfiBlogTargets(total, target) {
+    $("#medinfi_total").html(total)
+    $("#medinfi_target").html(target)
+    progress = Math.floor(total/target*100);
+    $("#medinfi_blog_progress_bar").css("width", progress + "%")
+    $("#medinfi_blog_progress_bar").html(progress + "%")
+}
+
+function setFacebookTarget(total, target) {
+    $("#fb_achieved").html(total)
+    $("#fb_target").html(target)
+    progress = Math.floor(total/target*100);
+    $("#fb_progress_bar").css("width", progress + "%")
+    $("#fb_progress_bar").html(progress + "%")
+}
+
+function setTwitterTarget(total, target) {
+    $("#tw_achieved").html(total)
+    $("#tw_target").html(target)
+    progress = Math.floor(total/target*100);
+    $("#tw_progress_bar").css("width", progress + "%")
+    $("#tw_progress_bar").html(progress + "%")
+}
