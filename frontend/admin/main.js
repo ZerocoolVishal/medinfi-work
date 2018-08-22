@@ -8,12 +8,11 @@ $(document).ready(function () {
     setClients(filterData.client)
     setAcm(filterData.acm)
 
-    setProjectAndDashboard()
+    //set project list
+    setProjectList(['Project 1', ['project 2'], ['Project 3']])
 
-    //Testing
-    setMedinfiBlogTargets(20, 100)
-    setFacebookTarget(30, 100)
-    setTwitterTarget(40, 100)
+    setProjectDashboard()
+
 })
 
 function setCompanies(company) {
@@ -82,29 +81,34 @@ function getFilterData() {
 
     return filterData
 }
-
-function setProjectAndDashboard() {
-    setProjectTargets(56, 100)
-    setProjectList(['Project 1', ['project 2'], ['Project 3']])
-}
-
-function setProjectTargets(achieved, target) {
-    $("#target_achieved").html(achieved)
-    $("#target").html(target)
-    campaignProgressBar(Math.floor(achieved/target*100))
-}
-
-function campaignProgressBar(campaignProgress) {
-    $("#campaign_progress_bar").css("width", campaignProgress + "%")
-    $("#campaign_progress_bar").html(campaignProgress + "%")
-}
-
+//set project list
 function setProjectList(projectList) {
     projectList.forEach(project => {
         $("#project_list").append(`<a href="#" class="list-group-item list-group-item-action">${project}</a>`)
     })
 }
 
+//set project dashboard according to the project selected
+function setProjectDashboard(project) {
+
+    //Set Targets of medinfi blog, facebook and twitter
+    setMedinfiBlogTargets(20, 100)
+    setFacebookTarget(30, 100)
+    setTwitterTarget(40, 100)
+    //project level target
+    setProjectTargets(90, 300)
+}
+
+//set project level target
+function setProjectTargets(achieved, target) {
+    $("#target_achieved").html(achieved)
+    $("#target").html(target)
+    campaignProgress = Math.floor(achieved/target*100)
+    $("#campaign_progress_bar").css("width", campaignProgress + "%")
+    $("#campaign_progress_bar").html(campaignProgress + "%")
+}
+
+//set medinfi blog target
 function setMedinfiBlogTargets(total, target) {
     $("#medinfi_total").html(total)
     $("#medinfi_target").html(target)
@@ -113,6 +117,7 @@ function setMedinfiBlogTargets(total, target) {
     $("#medinfi_blog_progress_bar").html(progress + "%")
 }
 
+//set facebook target
 function setFacebookTarget(total, target) {
     $("#fb_achieved").html(total)
     $("#fb_target").html(target)
@@ -121,6 +126,7 @@ function setFacebookTarget(total, target) {
     $("#fb_progress_bar").html(progress + "%")
 }
 
+//set twitter target
 function setTwitterTarget(total, target) {
     $("#tw_achieved").html(total)
     $("#tw_target").html(target)
