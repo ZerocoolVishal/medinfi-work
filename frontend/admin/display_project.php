@@ -56,7 +56,7 @@
                         <div class="row" style="margin-top:20px;">
                             <div class="col sm-12 md-3">
                                 <div class="input-group input-group-sm mb-3">
-                                    <input type="text" class="form-control" placeholder="Blog name" />
+                                    <input type="text" class="form-control" id="searchInput" onkeyup="filterTable('myTable','searchInput')" placeholder="Blog name" />
                                     <div class="input-group-append">
                                         <button class="btn btn-outline-primary" type="button">Search</button>
                                     </div>
@@ -65,7 +65,7 @@
                         </div>
 
                         <!--Preoject Data-->
-                        <div class="row">
+                        <div class="row" style="margin-top:20px;">
                             <div class="col">
 
                                 <div class="row">
@@ -79,30 +79,21 @@
                                     <div class="col">
                                         <div class="tab-content" id="v-pills-tabContent">
                                             <div class="tab-pane fade show active" id="mb-page-views">
-
                                                 <!--TODO: Table data goes here-->
                                                 Page Views
                                                 <?php include "table.html" ?>
-
                                             </div>
+
                                             <div class="tab-pane fade" id="mb-banner-clicks">
-                                                <div class="table-responsive">
-
-                                                    <!--TODO: Table data goes here-->
-                                                    Banner Clicks
-                                                    <?php include "table.html" ?>
-
-                                                </div>
+                                                <!--TODO: Table data goes here-->
+                                                Banner Clicks
+                                                <?php include "table.html" ?>      
                                             </div>
 
                                             <div class="tab-pane fade" id="mb-online-sales">
-                                                <div class="table-responsive">
-
-                                                    <!--TODO: Table data goes here-->
-                                                    Online Sale
-                                                    <?php include "table.html" ?>
-
-                                                </div>
+                                                <!--TODO: Table data goes here-->
+                                                Online Sale
+                                                <?php include "table.html" ?>
                                             </div>
                                         </div>
                                     </div>
