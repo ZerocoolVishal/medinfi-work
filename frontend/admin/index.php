@@ -18,26 +18,20 @@
         <div class="row">
             <div class="col lg-3">
                 <label class="col-form-label">Company</label>
-                <select style="margin-left:10px;" id="company_select">
-
-                </select>
+                <select class="custom-select"  id="company_select"></select>
             </div>
             <div class="col lg-3">
                 <label class="col-form-label">Client</label>
-                <select style="margin-left:10px;" id="client_select">
-
-                </select>
+                <select class="custom-select style="margin-left:10px;" id="client_select"></select>
             </div>
             <div class="col lg-3">
                 <label class="col-form-label">Account Manager</label>
-                <select style="margin-left:10px;" id="acm_select">
-
-                </select>
+                <select class="custom-select style="margin-left:10px;" id="acm_select"></select>
             </div>
         </div>
 
         <!--Project Prohress Bar-->
-        <div class="row">
+        <div class="row" style="margin-top:10px;">
             <div class="col">
                 <label class="col-form-label">Campaign Progress</label>
                 <div class="progress align-items-center">

@@ -44,28 +44,28 @@ function getFilterData() {
     filterData = {
         company: [{
                 id: 1001,
-                name: 'Jonson and Jonson'
+                name: 'Johnson & Johnson'
             },
             {
                 id: 1002,
-                name: 'Prpsi co'
+                name: 'PepsiCo'
             },
             {
                 id: 1003,
-                name: 'faizer'
+                name: 'Pfizer'
             }
         ],
         client: [{
                 id: 1001,
-                name: 'Client'
+                name: 'Johnson & Johnson'
             },
             {
                 id: 1002,
-                name: 'Prpsi co'
+                name: 'PepsiCo'
             },
             {
                 id: 1003,
-                name: 'faizer'
+                name: 'Pfizer'
             }
         ],
         acm: [{
@@ -135,10 +135,6 @@ function setTwitterTarget(total, target) {
     $("#tw_progress_bar").html(progress + "%")
 }
 
-function loadTable(tableID, data) {
-    
-}
-
 function filterTable(tableID, inputID) {
     var input, filter, table, tr, td, i;
     input = document.getElementById(inputID);
@@ -155,4 +151,8 @@ function filterTable(tableID, inputID) {
         }
       }
     }
-  }
+}
+
+function loadTable(tableID, data) {
+
+}
