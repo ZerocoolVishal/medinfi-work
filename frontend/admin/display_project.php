@@ -14,6 +14,7 @@
                     <li class="nav-item">
                         <a class="nav-link" role="tab" data-toggle="tab" href="#tab-3">Twitter</a>
                     </li>
+                    <button class="btn btn-primary" id="btn_export" onclick="exportProject()" style="margin-left: 52%;" type="button">Export</button>
                 </ul>
 
                 <div class="tab-content">

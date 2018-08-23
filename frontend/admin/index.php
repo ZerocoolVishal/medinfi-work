@@ -22,11 +22,11 @@
             </div>
             <div class="col lg-3">
                 <label class="col-form-label">Client</label>
-                <select class="custom-select style="margin-left:10px;" id="client_select"></select>
+                <select class="custom-select" style="margin-left:10px;" id="client_select"></select>
             </div>
             <div class="col lg-3">
                 <label class="col-form-label">Account Manager</label>
-                <select class="custom-select style="margin-left:10px;" id="acm_select"></select>
+                <select class="custom-select" style="margin-left:10px;" id="acm_select"></select>
             </div>
         </div>
 
@@ -65,27 +65,22 @@
         <div class="row" style="margin-top:20px;">
 
             <div class="col">   
-                <!--Project List-->
                 <div class="row">
+                    <!--Project List-->
                     <div class="col-3">
                         <div class="list-group" id="project_list">
                             
                         </div>
                     </div>
+                    <!--Display Project-->
                     <div class="col-9">
                         <?php include "display_project.php" ?>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!--Export Button-->
-        <div class="row">
-            <div class="col">
-                <button class="btn btn-primary" type="button">Export</button>
-            </div>
-        </div>
     </div>
+    
     <script src="../assets/js/jquery.min.js"></script>
     <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="main.js"></script>

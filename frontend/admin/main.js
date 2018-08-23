@@ -1,17 +1,14 @@
 $(document).ready(function () {
 
-    filterData = getFilterData()
-
-    console.log(filterData.acm)
-
-    setCompanies(filterData.company)
-    setClients(filterData.client)
-    setAcm(filterData.acm)
+    //Filters data
+    getFilterData()
 
     //set project list
     setProjectList(['Project 1', ['project 2'], ['Project 3']])
 
     setProjectDashboard()
+
+    //testing
 
 })
 
@@ -39,48 +36,16 @@ function setAcm(acm) {
     });
 }
 
+//AJAX : getting filter data
 function getFilterData() {
-
-    filterData = {
-        company: [{
-                id: 1001,
-                name: 'Johnson & Johnson'
-            },
-            {
-                id: 1002,
-                name: 'PepsiCo'
-            },
-            {
-                id: 1003,
-                name: 'Pfizer'
-            }
-        ],
-        client: [{
-                id: 1001,
-                name: 'Johnson & Johnson'
-            },
-            {
-                id: 1002,
-                name: 'PepsiCo'
-            },
-            {
-                id: 1003,
-                name: 'Pfizer'
-            }
-        ],
-        acm: [{
-                id: 1001,
-                name: 'Nikhil'
-            },
-            {
-                id: 1002,
-                name: 'Abdul'
-            }
-        ]
-    }
-
-    return filterData
+    $.get("test/FilterDataTest.php", function(data, status){
+        console.log(data);
+        setCompanies(data.company)
+        setClients(data.client)
+        setAcm(data.acm)
+    })
 }
+
 //set project list
 function setProjectList(projectList) {
     projectList.forEach(project => {
@@ -91,12 +56,12 @@ function setProjectList(projectList) {
 //set project dashboard according to the project selected
 function setProjectDashboard(project) {
 
+    //project level target
+    setProjectTargets(90, 300)
     //Set Targets of medinfi blog, facebook and twitter
     setMedinfiBlogTargets(20, 100)
     setFacebookTarget(30, 100)
     setTwitterTarget(40, 100)
-    //project level target
-    setProjectTargets(90, 300)
 }
 
 //set project level target
@@ -135,6 +100,7 @@ function setTwitterTarget(total, target) {
     $("#tw_progress_bar").html(progress + "%")
 }
 
+//Filter data from the table to search
 function filterTable(tableID, inputID) {
     var input, filter, table, tr, td, i;
     input = document.getElementById(inputID);
@@ -153,6 +119,12 @@ function filterTable(tableID, inputID) {
     }
 }
 
+//for loading data in the table
 function loadTable(tableID, data) {
+    //TODO: Loding TABLE
+}
 
+function exportProject() {
+    //TODO: Export project
+    alert("project exporting")
 }
