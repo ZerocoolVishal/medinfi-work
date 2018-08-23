@@ -1,5 +1,6 @@
 <!--Project Data-->
 <div class="col-12">
+    <div id="project_name" style="margin-bottom: 10px;">Project Name</div>
     <div class="tab-content" id="v-pills-tabContent">
         <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
 

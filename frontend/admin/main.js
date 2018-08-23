@@ -4,9 +4,25 @@ $(document).ready(function () {
     getFilterData()
 
     //set project list
-    setProjectList(['Project 1', ['project 2'], ['Project 3']])
+    projectList = {
+        list: [
+            {
+                id: 01,
+                name: "Project 1",
+            },
+            {
+                id: 02,
+                name: "Project 2",
+            },
+            {
+                id: 03,
+                name: "Project 3",
+            }
+        ]
+    }
+    setProjectList(projectList.list)
 
-    setProjectDashboard()
+    //setProjectDashboard()
 
     //testing
 
@@ -49,19 +65,36 @@ function getFilterData() {
 //set project list
 function setProjectList(projectList) {
     projectList.forEach(project => {
-        $("#project_list").append(`<a href="#" class="list-group-item list-group-item-action">${project}</a>`)
+        $("#project_list").append(`<a href="#" class="list-group-item list-group-item-action" id="project_list_${project.id}" onclick="selectProject('${project.id}')">${project.name}</a>`)
     })
+}
+
+//AJAX: get project by ID
+function selectProject(projectID) {
+    //$("#project_list_" + projectID).addClass("active");
+    //setProjectDashboard(getProjectById(projectID));
+
+    //AJAX call and get project bt id
+    $.get("test/ProjectTest.php",{
+        id: projectID
+    },function(data, status){
+        console.log(data)
+        setProjectDashboard(data)
+    });
 }
 
 //set project dashboard according to the project selected
 function setProjectDashboard(project) {
 
-    //project level target
-    setProjectTargets(90, 300)
+    $("#project_name").html(project.name)
     //Set Targets of medinfi blog, facebook and twitter
-    setMedinfiBlogTargets(20, 100)
-    setFacebookTarget(30, 100)
-    setTwitterTarget(40, 100)
+    setMedinfiBlogTargets(project.medinfiTarget.total, project.medinfiTarget.target)
+    setFacebookTarget(project.facebookTarget.total, project.facebookTarget.target)
+    setTwitterTarget(project.twitterTarget.total, project.twitterTarget.target)
+    //project level target
+    let projectTarget = project.medinfiTarget.target + project.facebookTarget.target + project.twitterTarget.target;
+    let projectTotal = project.medinfiTarget.total + project.facebookTarget.total + project.twitterTarget.total;
+    setProjectTargets(projectTotal, projectTarget);
 }
 
 //set project level target
