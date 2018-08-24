@@ -3,26 +3,11 @@ $(document).ready(function () {
     //Filters data
     getFilterData()
 
-    //set project list
-    projectList = {
-        list: [
-            {
-                id: 01,
-                name: "Project 1",
-            },
-            {
-                id: 02,
-                name: "Project 2",
-            },
-            {
-                id: 03,
-                name: "Project 3",
-            }
-        ]
-    }
-    setProjectList(projectList.list)
+    //Project and Dashboard data
+    getProjectAndDashboard()
 
-    //setProjectDashboard()
+    //getting project
+    getProjectList()
 
     //testing
 
@@ -32,33 +17,46 @@ function setCompanies(company) {
     company.forEach(element => {
         company = element
         $("#company_select").append(`<option value="${company.id}" selected="">${company.name}</option>`);
-        console.log(`${company} added`);
-    });
+        console.log(`${company} added`)
+    })
 }
 
 function setClients(client) {
     client.forEach(element => {
         client = element
         $("#client_select").append(`<option value="${client.id}" selected="">${client.name}</option>`);
-        console.log(`${client} added`);
-    });
+        console.log(`${client} added`)
+    })
 }
 
 function setAcm(acm) {
     acm.forEach(element => {
         acm = element
         $("#acm_select").append(`<option value="${acm.id}" selected="">${acm.name}</option>`);
-        console.log(`${acm} added`);
-    });
+        console.log(`${acm} added`)
+    })
 }
 
 //AJAX : getting filter data
 function getFilterData() {
     $.get("test/FilterDataTest.php", function(data, status){
-        console.log(data);
+        console.log(data)
         setCompanies(data.company)
         setClients(data.client)
         setAcm(data.acm)
+    })
+}
+
+//AJAX Method for getting project and dashboard
+function getProjectAndDashboard() {
+    //TODO: Impliment this method
+}
+
+function getProjectList() {
+    //set project list
+     $.get("test/ProjectListTest.php", function(data, status){
+        console.log(data);
+        setProjectList(data.projectList)
     })
 }
 
@@ -71,8 +69,8 @@ function setProjectList(projectList) {
 
 //AJAX: get project by ID
 function selectProject(projectID) {
-    //$("#project_list_" + projectID).addClass("active");
-    //setProjectDashboard(getProjectById(projectID));
+    //$("#project_list_" + projectID).addClass("active")
+    //setProjectDashboard(getProjectById(projectID))
 
     //AJAX call and get project bt id
     $.get("test/ProjectTest.php",{
@@ -80,7 +78,7 @@ function selectProject(projectID) {
     },function(data, status){
         console.log(data)
         setProjectDashboard(data)
-    });
+    })
 }
 
 //set project dashboard according to the project selected
@@ -92,9 +90,9 @@ function setProjectDashboard(project) {
     setFacebookTarget(project.facebookTarget.total, project.facebookTarget.target)
     setTwitterTarget(project.twitterTarget.total, project.twitterTarget.target)
     //project level target
-    let projectTarget = project.medinfiTarget.target + project.facebookTarget.target + project.twitterTarget.target;
-    let projectTotal = project.medinfiTarget.total + project.facebookTarget.total + project.twitterTarget.total;
-    setProjectTargets(projectTotal, projectTarget);
+    let projectTarget = project.medinfiTarget.target + project.facebookTarget.target + project.twitterTarget.target
+    let projectTotal = project.medinfiTarget.total + project.facebookTarget.total + project.twitterTarget.total
+    setProjectTargets(projectTotal, projectTarget)
 }
 
 //set project level target
@@ -110,7 +108,7 @@ function setProjectTargets(achieved, target) {
 function setMedinfiBlogTargets(total, target) {
     $("#medinfi_total").html(total)
     $("#medinfi_target").html(target)
-    progress = Math.floor(total/target*100);
+    progress = Math.floor(total/target*100)
     $("#medinfi_blog_progress_bar").css("width", progress + "%")
     $("#medinfi_blog_progress_bar").html(progress + "%")
 }
@@ -119,7 +117,7 @@ function setMedinfiBlogTargets(total, target) {
 function setFacebookTarget(total, target) {
     $("#fb_achieved").html(total)
     $("#fb_target").html(target)
-    progress = Math.floor(total/target*100);
+    progress = Math.floor(total/target*100)
     $("#fb_progress_bar").css("width", progress + "%")
     $("#fb_progress_bar").html(progress + "%")
 }
@@ -128,25 +126,25 @@ function setFacebookTarget(total, target) {
 function setTwitterTarget(total, target) {
     $("#tw_achieved").html(total)
     $("#tw_target").html(target)
-    progress = Math.floor(total/target*100);
+    progress = Math.floor(total/target*100)
     $("#tw_progress_bar").css("width", progress + "%")
     $("#tw_progress_bar").html(progress + "%")
 }
 
 //Filter data from the table to search
 function filterTable(tableID, inputID) {
-    var input, filter, table, tr, td, i;
-    input = document.getElementById(inputID);
-    filter = input.value.toUpperCase();
-    table = document.getElementById(tableID);
-    tr = table.getElementsByTagName("tr");
+    var input, filter, table, tr, td, i
+    input = document.getElementById(inputID)
+    filter = input.value.toUpperCase()
+    table = document.getElementById(tableID)
+    tr = table.getElementsByTagName("tr")
     for (i = 0; i < tr.length; i++) {
-      td = tr[i].getElementsByTagName("td")[1];
+      td = tr[i].getElementsByTagName("td")[1]
       if (td) {
         if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-          tr[i].style.display = "";
+          tr[i].style.display = ""
         } else {
-          tr[i].style.display = "none";
+          tr[i].style.display = "none"
         }
       }
     }

@@ -1,5 +1,22 @@
 <?php
 
+function getProject() {
+    $project = '
+    
+        {
+            "id" : 1,
+            "name" : "Project name",
+            "launchDate" : "20-08-2018",
+            "medinfi" : {
+                "total" : 2500,
+                "target" : 10000,
+                
+            }
+        }
+    
+    ';
+}
+
 $projectId = $_GET['id'];
 
 switch($projectId) {
