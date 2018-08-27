@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../assets/css/styles.css">
 </head>
 
-<body style="margin:0px;">
+<body>
 
     <div class="container">
 
@@ -18,7 +18,7 @@
         <div class="row">
             <div class="col lg-3">
                 <label class="col-form-label">Company</label>
-                <select class="custom-select"  id="company_select"></select>
+                <select class="custom-select" id="company_select"></select>
             </div>
             <div class="col lg-3">
                 <label class="col-form-label">Client</label>

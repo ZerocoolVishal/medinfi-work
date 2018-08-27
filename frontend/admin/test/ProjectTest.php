@@ -7,10 +7,167 @@ function getProject() {
             "id" : 1,
             "name" : "Project name",
             "launchDate" : "20-08-2018",
-            "medinfi" : {
-                "total" : 2500,
-                "target" : 10000,
-                
+            "medinfi": {
+                "total": 50,
+                "target": 100,
+                "data": {
+                    "pageViews": {
+                        "weekData": [
+                            {
+                                "blogName": "Name of the blog",
+                                "launchDate": "25-08-2011",
+                                "actual": 200,
+                                "target": 1000,
+                                "data": [
+                                    80,
+                                    90,
+                                    100,
+                                    200
+                                ]
+                            }   
+                        ]
+                    },
+                    "bannerClicks": {
+                        "weekData": [
+                            {
+                                "blogName": "Name of the blog",
+                                "launchDate": "25-08-2011",
+                                "actual": 200,
+                                "target": 1000,
+                                "data": [
+                                    80,
+                                    90,
+                                    100,
+                                    200
+                                ]
+                            }   
+                        ]
+                    },
+                    "onlineSales": {
+                        "weekData": [
+                            {
+                                "blogName": "Name of the blog",
+                                "launchDate": "25-08-2011",
+                                "actual": 200,
+                                "target": 1000,
+                                "data": [
+                                    80,
+                                    90,
+                                    100,
+                                    200
+                                ]
+                            }   
+                        ]
+                    }
+                }
+            },
+            "facebook": {
+                "total": 50,
+                "target": 100,
+                "data": {
+                    "likesAndShares": {
+                        "weekData": [
+                            {
+                                "postName": "Name of the blog",
+                                "launchDate": "25-08-2011",
+                                "actual": 200,
+                                "target": 1000,
+                                "data": [
+                                    80,
+                                    90,
+                                    100,
+                                    200
+                                ]
+                            }   
+                        ]
+                    },
+                    "clickToSite": {
+                        "weekData": [
+                            {
+                                "postName": "Name of the blog",
+                                "launchDate": "25-08-2011",
+                                "actual": 200,
+                                "target": 1000,
+                                "data": [
+                                    80,
+                                    90,
+                                    100,
+                                    200
+                                ]
+                            }   
+                        ]
+                    },
+                    "comments": {
+                        "weekData": [
+                            {
+                                "postName": "Name of the blog",
+                                "launchDate": "25-08-2011",
+                                "actual": 200,
+                                "target": 1000,
+                                "data": [
+                                    80,
+                                    90,
+                                    100,
+                                    200
+                                ]
+                            }   
+                        ]
+                    }
+                }
+            },
+            "twitter": {
+                "total": 50,
+                "target": 100,
+                "data": {
+                    "impression": {
+                        "weekData": [
+                            {
+                                "postName": "Name of the blog",
+                                "launchDate": "25-08-2011",
+                                "actual": 200,
+                                "target": 1000,
+                                "data": [
+                                    80,
+                                    90,
+                                    100,
+                                    200
+                                ]
+                            }   
+                        ]
+                    },
+                    "retweets": {
+                        "weekData": [
+                            {
+                                "postName": "Name of the blog",
+                                "launchDate": "25-08-2011",
+                                "actual": 200,
+                                "target": 1000,
+                                "data": [
+                                    80,
+                                    90,
+                                    100,
+                                    200
+                                ]
+                            }   
+                        ]
+                    },
+                    "comments": {
+                        "weekData": [
+                            {
+                                "postName": "Name of the blog",
+                                "launchDate": "25-08-2011",
+                                "actual": 200,
+                                "target": 1000,
+                                "data": [
+                                    80,
+                                    90,
+                                    100,
+                                    200
+                                ]
+                            }   
+                        ]
+                    }
+                }
             }
         }
     

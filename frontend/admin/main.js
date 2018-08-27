@@ -3,36 +3,58 @@ $(document).ready(function () {
     //Filters data
     getFilterData()
 
+    //Selecting filters
+    $("#company_select").change(function (){
+        selectCompany(this.value)
+    })
+    $("#client_select").change(function(){
+        selectClient(this.value)
+    })
+    $("#acm_select").change(function(){
+        selectAcm(this.value)
+    })
+    
+    $("#btn_export").click(function(){
+        alert("TODO: implement")
+    })
+
     //Project and Dashboard data
     getProjectAndDashboard()
 
     //getting project
     getProjectList()
-
-    //testing
-
+   
 })
 
+/*
+    compant is the list of companies
+*/
 function setCompanies(company) {
     company.forEach(element => {
         company = element
-        $("#company_select").append(`<option value="${company.id}" selected="">${company.name}</option>`);
+        $("#company_select").append(`<option value="${company.id}">${company.name}</option>`);
         console.log(`${company} added`)
     })
 }
 
+/*
+    client is the list of clients
+*/
 function setClients(client) {
     client.forEach(element => {
         client = element
-        $("#client_select").append(`<option value="${client.id}" selected="">${client.name}</option>`);
+        $("#client_select").append(`<option value="${client.id}">${client.name}</option>`);
         console.log(`${client} added`)
     })
 }
 
+/*
+    acm is the list of account managers
+*/
 function setAcm(acm) {
     acm.forEach(element => {
         acm = element
-        $("#acm_select").append(`<option value="${acm.id}" selected="">${acm.name}</option>`);
+        $("#acm_select").append(`<option value="${acm.id}">${acm.name}</option>`);
         console.log(`${acm} added`)
     })
 }
@@ -45,6 +67,31 @@ function getFilterData() {
         setClients(data.client)
         setAcm(data.acm)
     })
+}
+
+/*
+    companyId of the company
+    TODO: select company implementation
+    This will display all the clients assoiate with that company
+*/
+function selectCompany(companyId) {
+    alert("company is selected " + companyId)
+}
+
+/*
+    This will display all the projects associated with that clients
+    TODO: select client implementation
+*/
+function selectClient(clientId) {
+    alert("slient is selected " + clientId)
+}
+
+/*
+    This will display all the projects associated with that Account manager
+    TODO: select client implementation
+*/
+function selectAcm(acmId) {
+    alert("ACM is selected " + acmId)
 }
 
 //AJAX Method for getting project and dashboard
@@ -60,7 +107,9 @@ function getProjectList() {
     })
 }
 
-//set project list
+/*
+    projectList is the list of projects
+*/
 function setProjectList(projectList) {
     projectList.forEach(project => {
         $("#project_list").append(`<a href="#" class="list-group-item list-group-item-action" id="project_list_${project.id}" onclick="selectProject('${project.id}')">${project.name}</a>`)
