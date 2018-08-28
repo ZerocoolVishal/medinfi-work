@@ -83,6 +83,6 @@
     
     <script src="../assets/js/jquery.min.js"></script>
     <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="main.js"></script>
+    <script src="admin.main.js"></script>
 </body>
 </html>

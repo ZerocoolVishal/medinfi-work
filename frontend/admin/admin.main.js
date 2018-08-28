@@ -24,7 +24,7 @@ $(document).ready(function () {
     //getting project
     getProjectList()
    
-})
+})  
 
 /*
     compant is the list of companies
