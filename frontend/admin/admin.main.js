@@ -135,13 +135,17 @@ function setProjectDashboard(project) {
 
     $("#project_name").html(project.name)
     //Set Targets of medinfi blog, facebook and twitter
-    setMedinfiBlogTargets(project.medinfiTarget.total, project.medinfiTarget.target)
-    setFacebookTarget(project.facebookTarget.total, project.facebookTarget.target)
-    setTwitterTarget(project.twitterTarget.total, project.twitterTarget.target)
+    setMedinfiBlogTargets(project.medinfi.total, project.medinfi.target)
+    setFacebookTarget(project.facebook.total, project.facebook.target)
+    setTwitterTarget(project.twitter.total, project.twitter.target)
+    
     //project level target
-    let projectTarget = project.medinfiTarget.target + project.facebookTarget.target + project.twitterTarget.target
-    let projectTotal = project.medinfiTarget.total + project.facebookTarget.total + project.twitterTarget.total
+    let projectTarget = project.medinfi.target + project.facebook.target + project.twitter.target
+    let projectTotal = project.medinfi.total + project.facebook.total + project.twitter.total
     setProjectTargets(projectTotal, projectTarget)
+
+    //Table
+    loadTable("medinfiTable", project.medinfi.data.pageViews.weekData)
 }
 
 //set project level target
@@ -200,8 +204,44 @@ function filterTable(tableID, inputID) {
 }
 
 //for loading data in the table
-function loadTable(tableID, data) {
-    //TODO: Loding TABLE
+function loadTable(tableId, weekData) {
+
+    //Table Head
+    let tableHead = $(`#${tableId} thead`)
+    //removing previous content
+    tableHead.html('')
+    tableHead.append('<tr>')
+    tableHead.children().append('<th colspan="1">No.</th>')
+    tableHead.children().append('<th colspan="1">Name</th>')
+    tableHead.children().append('<th colspan="1">Launch Date</th>')
+    tableHead.children().append('<th class="table-active">Target</th>')
+    tableHead.children().append('<th class="table-active">Actual</th>')
+    let len = weekData[0].data.length
+    for(i=0; i<len; i++){
+        tableHead.children().append(`<th>W${i}</th>`)
+    }
+    tableHead.append('</tr>')
+    
+    //Table Body
+    let tableBody = $(`#${tableId} tbody`)
+    //removing previous content
+    tableBody.html('')
+    console.log(weekData);
+    
+    weekData.forEach(e => {
+        tableBody.append('<tr>')
+        tableBody.children().append(`
+            <td>1</td>
+            <td>${e.name}</td>
+            <td>${e.launchDate}</td>
+            <td>${e.target}</td>
+            <td>${e.actual}</td>
+        `)
+        e.data.forEach(d =>{
+            tableBody.children().append(`<td>${d}</td>`)
+        })
+        tableBody.append('</tr>')
+    })
 }
 
 function exportProject() {

@@ -83,7 +83,7 @@
                                             <div class="tab-pane fade show active" id="mb-page-views">
                                                 <!--TODO: Table data goes here-->
                                                 Page Views
-                                                <?php include "table.html" ?>
+                                                <?php include "table1.html" ?>
                                             </div>
 
                                             <div class="tab-pane fade" id="mb-banner-clicks">

@@ -2,7 +2,6 @@
 
 function getProject() {
     $project = '
-    
         {
             "id" : 1,
             "name" : "Project name",
@@ -14,7 +13,7 @@ function getProject() {
                     "pageViews": {
                         "weekData": [
                             {
-                                "blogName": "Name of the blog",
+                                "name": "Name of the blog",
                                 "launchDate": "25-08-2011",
                                 "actual": 200,
                                 "target": 1000,
@@ -24,13 +23,49 @@ function getProject() {
                                     100,
                                     200
                                 ]
-                            }   
+                            },
+                            {
+                                "name": "Name of the blog",
+                                "launchDate": "25-08-2011",
+                                "actual": 200,
+                                "target": 1000,
+                                "data": [
+                                    80,
+                                    90,
+                                    100,
+                                    200
+                                ]
+                            },
+                            {
+                                "name": "Name of the blog",
+                                "launchDate": "25-08-2011",
+                                "actual": 200,
+                                "target": 1000,
+                                "data": [
+                                    80,
+                                    90,
+                                    100,
+                                    200
+                                ]
+                            },
+                            {
+                                "name": "Name of the blog",
+                                "launchDate": "25-08-2011",
+                                "actual": 200,
+                                "target": 1000,
+                                "data": [
+                                    80,
+                                    90,
+                                    100,
+                                    200
+                                ]
+                            } 
                         ]
                     },
                     "bannerClicks": {
                         "weekData": [
                             {
-                                "blogName": "Name of the blog",
+                                "name": "Name of the blog",
                                 "launchDate": "25-08-2011",
                                 "actual": 200,
                                 "target": 1000,
@@ -46,7 +81,7 @@ function getProject() {
                     "onlineSales": {
                         "weekData": [
                             {
-                                "blogName": "Name of the blog",
+                                "name": "Name of the blog",
                                 "launchDate": "25-08-2011",
                                 "actual": 200,
                                 "target": 1000,
@@ -68,7 +103,7 @@ function getProject() {
                     "likesAndShares": {
                         "weekData": [
                             {
-                                "postName": "Name of the blog",
+                                "name": "Name of the blog",
                                 "launchDate": "25-08-2011",
                                 "actual": 200,
                                 "target": 1000,
@@ -84,7 +119,7 @@ function getProject() {
                     "clickToSite": {
                         "weekData": [
                             {
-                                "postName": "Name of the blog",
+                                "name": "Name of the blog",
                                 "launchDate": "25-08-2011",
                                 "actual": 200,
                                 "target": 1000,
@@ -100,7 +135,7 @@ function getProject() {
                     "comments": {
                         "weekData": [
                             {
-                                "postName": "Name of the blog",
+                                "name": "Name of the blog",
                                 "launchDate": "25-08-2011",
                                 "actual": 200,
                                 "target": 1000,
@@ -122,7 +157,7 @@ function getProject() {
                     "impression": {
                         "weekData": [
                             {
-                                "postName": "Name of the blog",
+                                "name": "Name of the blog",
                                 "launchDate": "25-08-2011",
                                 "actual": 200,
                                 "target": 1000,
@@ -138,7 +173,7 @@ function getProject() {
                     "retweets": {
                         "weekData": [
                             {
-                                "postName": "Name of the blog",
+                                "name": "Name of the blog",
                                 "launchDate": "25-08-2011",
                                 "actual": 200,
                                 "target": 1000,
@@ -154,7 +189,7 @@ function getProject() {
                     "comments": {
                         "weekData": [
                             {
-                                "postName": "Name of the blog",
+                                "name": "Name of the blog",
                                 "launchDate": "25-08-2011",
                                 "actual": 200,
                                 "target": 1000,
@@ -169,9 +204,8 @@ function getProject() {
                     }
                 }
             }
-        }
-    
-    ';
+        }';
+    return $project;
 }
 
 $projectId = $_GET['id'];
@@ -182,15 +216,15 @@ switch($projectId) {
         {
             "id": 10,
             "name": "Project AjAX 1",
-            "medinfiTarget": {
+            "medinfi": {
                 "total": 50,
                 "target": 100
             },
-            "facebookTarget": {
+            "facebook": {
                 "total": 50,
                 "target": 100
             },
-            "twitterTarget": {
+            "twitter": {
                 "total": 50,
                 "target": 100
             }
@@ -202,15 +236,15 @@ switch($projectId) {
         {
             "id": 10,
             "name": "Project AjAX 2",
-            "medinfiTarget": {
+            "medinfi": {
                 "total": 10,
                 "target": 100
             },
-            "facebookTarget": {
+            "facebook": {
                 "total": 50,
                 "target": 100
             },
-            "twitterTarget": {
+            "twitter": {
                 "total": 20,
                 "target": 100
             }
@@ -222,22 +256,25 @@ switch($projectId) {
         {
             "id": 10,
             "name": "Project AjAX 3",
-            "medinfiTarget": {
+            "medinfi": {
                 "total": 60,
                 "target": 100
             },
-            "facebookTarget": {
+            "facebook": {
                 "total": 40,
                 "target": 100
             },
-            "twitterTarget": {
+            "twitter": {
                 "total": 80,
                 "target": 100
             }
         }
         ';
     break;
+    case 4:
+        $jsonResponse = getProject();
+        break;
 }
 
 header('Content-Type: application/json');
-echo $jsonResponse;
+echo getProject();
