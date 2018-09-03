@@ -1,7 +1,18 @@
+const api = {
+    "getFlterData" : "index.php?r=medinfi-analytics/get-filter-data",
+    "getProjectList" : "index.php?r=medinfi-analytics/get-project-list",
+    "getProject" : "index.php?r=medinfi-analytics/get-project"
+}
+
 $(document).ready(function () {
 
+    //alert('its working yahoo !!')
+
     //Filters data
-    getFilterData()
+    getFilterData(api['getFlterData'])
+
+    //getting project
+    getProjectList(api['getProjectList'])
 
     //Selecting filters
     $("#company_select").change(function (){
@@ -17,13 +28,6 @@ $(document).ready(function () {
     $("#btn_export").click(function(){
         alert("TODO: implement")
     })
-
-    //Project and Dashboard data
-    getProjectAndDashboard()
-
-    //getting project
-    getProjectList()
-   
 })  
 
 /*
@@ -60,9 +64,10 @@ function setAcm(acm) {
 }
 
 //AJAX : getting filter data
-function getFilterData() {
-    $.get("test/FilterDataTest.php", function(data, status){
-        console.log(data)
+function getFilterData(apiUrl) {
+    $.get(apiUrl, function(data, status){
+        //console.log("data" + data + "status : " + status)
+        data = JSON.parse(data)
         setCompanies(data.company)
         setClients(data.client)
         setAcm(data.acm)
@@ -99,11 +104,12 @@ function getProjectAndDashboard() {
     //TODO: Impliment this method
 }
 
-function getProjectList() {
+function getProjectList(apiUrl) {
     //set project list
-     $.get("test/ProjectListTest.php", function(data, status){
-        console.log(data);
-        setProjectList(data.projectList)
+     $.get(apiUrl, function(data, status){
+        //console.log("data : " + data);
+        json = JSON.parse(data)
+        setProjectList(json.projectList)
     })
 }
 
@@ -122,16 +128,19 @@ function selectProject(projectID) {
     //setProjectDashboard(getProjectById(projectID))
 
     //AJAX call and get project bt id
-    $.get("test/ProjectTest.php",{
+    $.get(api['getProject'],{
         id: projectID
     },function(data, status){
-        console.log(data)
-        setProjectDashboard(data)
+        console.log("data : " + data + "status : " + status)
+        let json = JSON.parse(data)
+        setProjectDashboard(json)
     })
 }
 
 //set project dashboard according to the project selected
 function setProjectDashboard(project) {
+
+    console.log(project)
 
     $("#project_name").html(project.name)
     //Set Targets of medinfi blog, facebook and twitter
@@ -140,8 +149,8 @@ function setProjectDashboard(project) {
     setTwitterTarget(project.twitter.total, project.twitter.target)
     
     //project level target
-    let projectTarget = project.medinfi.target + project.facebook.target + project.twitter.target
     let projectTotal = project.medinfi.total + project.facebook.total + project.twitter.total
+    let projectTarget = project.medinfi.target + project.facebook.target + project.twitter.target
     setProjectTargets(projectTotal, projectTarget)
 
     //Table
@@ -206,7 +215,7 @@ function filterTable(tableID, inputID) {
 //for loading data in the table
 function loadTable(tableId, weekData) {
 
-    //Table Head
+    //Creating Table Head
     let tableHead = $(`#${tableId} thead`)
     //removing previous content
     tableHead.html('')
@@ -222,7 +231,7 @@ function loadTable(tableId, weekData) {
     }
     tableHead.append('</tr>')
     
-    //Table Body
+    //Creating Table Body
     let tableBody = $(`#${tableId} tbody`)
     //removing previous content
     tableBody.html('')

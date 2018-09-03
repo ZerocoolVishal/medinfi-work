@@ -48,6 +48,18 @@ function getProject() {
                                     200
                                 ]
                             },
+                            {   
+                                "name": "Name of the blog",
+                                "launchDate": "25-08-2011",
+                                "actual": 200,
+                                "target": 1000,
+                                "data": [
+                                    80,
+                                    90,
+                                    100,
+                                    200
+                                ]
+                            },
                             {
                                 "name": "Name of the blog",
                                 "launchDate": "25-08-2011",
